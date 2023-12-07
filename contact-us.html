@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact-Us</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <style>
+        
+    </style>
+    <script>
+        function validateForm() {
+            let x = document.forms["myForm"]["fname"].value;
+            let email = document.forms["myForm"]["email"].value;
+            let username = document.forms["myForm"]["username"].value;
+            let password = document.forms["myForm"]["password"].value;
+            let gender = document.querySelector('input[name="radio"]:checked');
+            let religion = document.forms["myForm"]["select-box"].value;
+            let address = document.forms["myForm"]["subject"].value;
+            let hobbies = document.querySelectorAll('input[name="checkbox"]:checked');
+
+            if (x === "") {
+                alert("Name must be filled out");
+                return false;
+            } else if (email === "") {
+                alert("Email must be filled out");
+                return false;
+            } else if (username === "") {
+                alert("Username must be filled out");
+                return false;
+            } else if (password === "") {
+                alert("Please add your password");
+                return false;
+            } else if (!gender) {
+                alert("Please choose your gender");
+                return false;
+            } else if (religion === "0") {
+                alert("Please choose your religion");
+                return false;
+            } else if (address === "") {
+                alert("Address must be filled out");
+                return false;
+            } else if (hobbies.length === 0) {
+                alert("Please, at least choose one hobby");
+                return false;
+            } else {
+                return true;
+            }
+        }
+    </script>
+</head>
+<body class="font-sans bg-gray-200">
+    <header class="bg-black p-2 flex items-center justify-between">
+        <nav>
+            <ul class="flex items-center">
+                <li><img src="Blackberry.png" alt="Logo" class="w-48 h-auto"></li>
+            </ul>
+        </nav>
+        <nav>
+            <ul class="flex items-center space-x-4">
+                <li><a href="bio-data.html" class="text-white hover:bg-gray-700 px-4 py-2 rounded">Bio Data</a></li>
+                <li><a href="contact-us.html" class="text-white hover:bg-gray-700 px-4 py-2 rounded">Contact Us</a></li>
+                <li><a href="https://unai.edu" class="text-white hover:bg-gray-700 px-4 py-2 rounded">Unai</a></li>
+                <li><a href="https://fti.unai.edu" class="text-white hover:bg-gray-700 px-4 py-2 rounded">Website</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post" class="max-w-lg mx-auto mt-8 p-8 bg-white rounded shadow-md">
+        <h2 class="text-2xl font-semibold mb-4">Contact-Us</h2>
+
+        <label for="fname" class="block mb-2">Name:</label>
+        <input type="text" name="fname" class="w-full px-3 py-2 mb-4 border rounded">
+
+        <label for="email" class="block mb-2">Email:</label>
+        <input type="text" name="email" class="w-full px-3 py-2 mb-4 border rounded">
+
+        <label for="username" class="block mb-2">Username:</label>
+        <input type="text" name="username" class="w-full px-3 py-2 mb-4 border rounded">
+
+        <label for="password" class="block mb-2">Password:</label>
+        <input type="password" name="password" class="w-full px-3 py-2 mb-4 border rounded">
+
+        <label class="block mb-2">Gender:</label>
+        <div class="flex mb-4">
+            <input type="radio" name="radio" id="male" class="mr-2">
+            <label for="male">Male</label>
+            <input type="radio" name="radio" id="female" class="ml-4 mr-2">
+            <label for="female">Female</label>
+        </div>
+
+        <label for="religion" class="block mb-2">Religion:</label>
+        <select name="select-box" id="religion" class="w-full px-3 py-2 mb-4 border rounded">
+            <option value="0">Select Religion:</option>
+            <option value="1">Christian</option>
+            <option value="2">Islam</option>
+            <option value="3">Advent</option>
+            <option value="4">Catholic</option>
+            <option value="5">Hinduism</option>
+        </select>
+
+        <label for="address" class="block mb-2">Address:</label>
+        <textarea name="subject" id="address" cols="30" rows="5" class="w-full px-3 py-2 mb-4 border rounded"></textarea>
+
+        <label class="block mb-2">Hobbies:</label>
+        <div class="flex mb-4">
+            <input type="checkbox" name="checkbox" id="dancing" class="mr-2">
+            <label for="dancing">Dancing</label>
+            <input type="checkbox" name="checkbox" id="drawing" class="ml-4 mr-2">
+            <label for="drawing">Drawing</label>
+            <input type="checkbox" name="checkbox" id="singing" class="ml-4 mr-2">
+            <label for="singing">Singing</label>
+            <input type="checkbox" name="checkbox" id="swimming" class="ml-4 mr-2">
+            <label for="swimming">Swimming</label>
+            <input type="checkbox" name="checkbox" id="reading" class="ml-4 mr-2">
+            <label for="reading">Reading</label>
+        </div>
+
+        <input type="submit" value="Submit" class="bg-blue-500 text-white px-4 py-2 rounded cursor-pointer">
+    </form>
+
+</body>
+</html>
